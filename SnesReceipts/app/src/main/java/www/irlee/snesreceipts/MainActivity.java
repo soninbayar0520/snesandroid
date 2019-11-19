@@ -50,13 +50,8 @@ public class MainActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
     }
-
-
     public void GetAllCategories(View view) {
-
         try {
 
             RequestQueue queue = Volley.newRequestQueue(this);
@@ -66,11 +61,9 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onResponse(String response) {
                             // Display the first 500 characters of the response string.
-
                             TextView tView = findViewById(R.id.txt_View);
                             tView.setText("done");
                             getdata(response);
-
                         }
                     }, new Response.ErrorListener() {
                 @Override
@@ -79,8 +72,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
             queue.add(stringRequest);
-
-
         } catch (Exception e) {
             Log.i("Error", e.getMessage());
         } finally {
