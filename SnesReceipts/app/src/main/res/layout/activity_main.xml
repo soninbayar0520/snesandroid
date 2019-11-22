@@ -28,7 +28,39 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.075"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.804" />
+
+    <Button
+        android:id="@+id/Btn_ReadAllCat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ReadAllCaterories"
+        android:onClick="ShowAllCategories"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/Btn_CreateTable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create Table"
+        android:onClick="CreateTable"
+        app:layout_constraintBottom_toTopOf="@+id/btn_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Btn_ReadAllCat" />
+    <Button
+        android:id="@+id/Btn_undo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Migration 0"
+        android:onClick="UndoTable"
+        app:layout_constraintBottom_toTopOf="@+id/btn_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Btn_CreateTable" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

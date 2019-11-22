@@ -1,13 +1,13 @@
-package www.irlee.snesreceipts;
+package www.irlee.snesreceipts.Models;
 
 public class Category {
 
-    String categoryId;
-    String categoryName;
-    String categoryPicture;
-    String categoryDetails;
-    String createdOn;
-    String updatedOn;
+    public String categoryId;
+    public String categoryName;
+    public String categoryPicture;
+    public String categoryDetails;
+    public String createdOn;
+    public  String updatedOn;
 
     public Category(String categoryId, String categoryName, String categoryPicture, String categoryDetails, String createdOn, String updatedOn) {
         this.categoryId = categoryId;

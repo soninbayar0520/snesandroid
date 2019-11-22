@@ -3,15 +3,24 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.LocaleList;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.text.DateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
+import java.util.Date;
+
+import www.irlee.snesreceipts.Models.User;
 
 
 public class LoginActivity extends AppCompatActivity {
+
     public static final String EXTRA_MESSAGE = "www.irlee.snesreceipts.message";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,11 +32,13 @@ public class LoginActivity extends AppCompatActivity {
         if(!sp.getBoolean("logged",false )){
            String passval= sp.getString("name", "john");
             Log.i("SNES",passval);
-            gotomain(passval);
+            gotoRegister(passval);
         }else{
 
         }
     }
+
+
 
     public void login(View view){
         EditText username = (EditText)findViewById(R.id.Txt_UserName);
@@ -46,6 +57,8 @@ public class LoginActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),"Password Wrong!!", Toast.LENGTH_LONG).show();
         }
     }
+
+
         public void sendMessage(View view) {
             EditText Username= findViewById(R.id.Txt_UserName);
             String value =Username.getText().toString();
@@ -61,6 +74,12 @@ public class LoginActivity extends AppCompatActivity {
             intent.putExtra(EXTRA_MESSAGE, "TEST DATA");
             startActivity(intent);
         }
+    public void gotoRegister(String name){
+
+        Intent intent = new Intent(this, Register.class);
+        intent.putExtra(EXTRA_MESSAGE, "TEST DATA");
+        startActivity(intent);
+    }
 
 
 }
