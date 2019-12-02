@@ -28,14 +28,16 @@ public class LoginActivity extends AppCompatActivity {
         SharedPreferences sp = getSharedPreferences("logged",MODE_PRIVATE);
         setContentView(R.layout.activity_login);
         Button btn =findViewById(R.id.LoginBtn);
+        Button RgstrBtn = findViewById(R.id.btn_register);
 
-        if(!sp.getBoolean("logged",false )){
-           String passval= sp.getString("name", "john");
-            Log.i("SNES",passval);
-            gotoRegister(passval);
-        }else{
 
-        }
+        //if(!sp.getBoolean("logged",false )){
+          // String passval= sp.getString("name", "john");
+            //Log.i("SNES",passval);
+            //gotoRegister(passval);
+        //}else{
+        //}
+
     }
 
 
@@ -74,7 +76,7 @@ public class LoginActivity extends AppCompatActivity {
             intent.putExtra(EXTRA_MESSAGE, "TEST DATA");
             startActivity(intent);
         }
-    public void gotoRegister(String name){
+    public void gotoRegister(View view){
 
         Intent intent = new Intent(this, Register.class);
         intent.putExtra(EXTRA_MESSAGE, "TEST DATA");

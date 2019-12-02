@@ -20,6 +20,7 @@ public class Register extends AppCompatActivity {
         userDbAdapter = new UserDbAdapter(this);
 
     }
+
     public void RegisterUser(View view){
         Date currentTime = Calendar.getInstance().getTime();
         DateFormat dateFormat = android.text.format.DateFormat.getDateFormat(getApplicationContext());

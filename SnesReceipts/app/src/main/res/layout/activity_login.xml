@@ -41,9 +41,11 @@
         android:layout_marginRight="110dp"
 android:drawableLeft="@drawable/ic_action_user"
         android:ems="10"
-        android:hint="UserName"
+        android:hint="@string/UserName"
         android:inputType=""
-        android:text="" />
+        android:text=""
+        android:autofillHints=""
+        android:drawableStart="@drawable/ic_action_user" />
 
     <EditText
         android:id="@+id/Txt_Password"
@@ -61,9 +63,9 @@ android:drawableLeft="@drawable/ic_action_user"
         android:layout_marginRight="110dp"
      android:drawableLeft="@drawable/ic_action_password"
         android:ems="10"
-        android:hint="Password"
-
-        android:inputType="textPassword" />
+        android:hint="@string/Password"
+        android:inputType="textPassword"
+        android:autofillHints="" />
 
     <Button
         android:id="@+id/LoginBtn"
@@ -81,7 +83,27 @@ android:drawableLeft="@drawable/ic_action_user"
         android:onClick="login"
         android:layout_marginRight="85dp"
         android:background="@color/colorAccent"
-        android:text="Login" />
+        android:text="@string/Login" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="254dp"
+        android:layout_height="87dp"
+        android:layout_below="@+id/LoginBtn"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="74dp"
+        android:layout_marginLeft="74dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="83dp"
+        android:layout_marginRight="83dp"
+        android:layout_marginBottom="135dp"
+        android:background="@color/colorAccent"
+        android:onClick="gotoRegister"
+        android:text="@string/Register" />
 
 
 </RelativeLayout>
