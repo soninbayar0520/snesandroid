@@ -1,0 +1,17 @@
+C:\Users\msoninbayar\source\repos\WABA\WABA\obj\Debug\netcoreapp2.1\WABA.csproj.CoreCompileInputs.cache
+C:\Users\msoninbayar\source\repos\WABA\WABA\obj\Debug\netcoreapp2.1\WABA.AssemblyInfoInputs.cache
+C:\Users\msoninbayar\source\repos\WABA\WABA\obj\Debug\netcoreapp2.1\WABA.AssemblyInfo.cs
+C:\Users\msoninbayar\source\repos\WABA\WABA\obj\Debug\netcoreapp2.1\WABA.RazorAssemblyInfo.cache
+C:\Users\msoninbayar\source\repos\WABA\WABA\obj\Debug\netcoreapp2.1\WABA.RazorAssemblyInfo.cs
+C:\Users\msoninbayar\source\repos\WABA\WABA\bin\Debug\netcoreapp2.1\WABA.deps.json
+C:\Users\msoninbayar\source\repos\WABA\WABA\bin\Debug\netcoreapp2.1\WABA.runtimeconfig.json
+C:\Users\msoninbayar\source\repos\WABA\WABA\bin\Debug\netcoreapp2.1\WABA.runtimeconfig.dev.json
+C:\Users\msoninbayar\source\repos\WABA\WABA\bin\Debug\netcoreapp2.1\WABA.dll
+C:\Users\msoninbayar\source\repos\WABA\WABA\bin\Debug\netcoreapp2.1\WABA.pdb
+C:\Users\msoninbayar\source\repos\WABA\WABA\obj\Debug\netcoreapp2.1\WABA.RazorTargetAssemblyInfo.cache
+C:\Users\msoninbayar\source\repos\WABA\WABA\obj\Debug\netcoreapp2.1\WABA.dll
+C:\Users\msoninbayar\source\repos\WABA\WABA\obj\Debug\netcoreapp2.1\WABA.pdb
+C:\Users\msoninbayar\source\repos\WABA\WABA\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
+C:\Users\msoninbayar\source\repos\WABA\WABA\bin\Debug\netcoreapp2.1\appsettings.json
+C:\Users\msoninbayar\source\repos\WABA\WABA\bin\Debug\netcoreapp2.1\AccountList.json
+C:\Users\msoninbayar\source\repos\WABA\WABA\obj\Debug\netcoreapp2.1\WABA.csprojAssemblyReference.cache

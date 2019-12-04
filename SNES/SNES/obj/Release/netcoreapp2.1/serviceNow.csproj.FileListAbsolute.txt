@@ -1,0 +1,16 @@
+C:\Users\msoninbayar\source\repos\Service-now\WABA\bin\Release\netcoreapp2.1\appsettings.json
+C:\Users\msoninbayar\source\repos\Service-now\WABA\bin\Release\netcoreapp2.1\serviceNow.deps.json
+C:\Users\msoninbayar\source\repos\Service-now\WABA\bin\Release\netcoreapp2.1\serviceNow.runtimeconfig.json
+C:\Users\msoninbayar\source\repos\Service-now\WABA\bin\Release\netcoreapp2.1\serviceNow.runtimeconfig.dev.json
+C:\Users\msoninbayar\source\repos\Service-now\WABA\bin\Release\netcoreapp2.1\serviceNow.dll
+C:\Users\msoninbayar\source\repos\Service-now\WABA\bin\Release\netcoreapp2.1\serviceNow.pdb
+C:\Users\msoninbayar\source\repos\Service-now\WABA\obj\Release\netcoreapp2.1\serviceNow.csprojAssemblyReference.cache
+C:\Users\msoninbayar\source\repos\Service-now\WABA\obj\Release\netcoreapp2.1\serviceNow.csproj.CoreCompileInputs.cache
+C:\Users\msoninbayar\source\repos\Service-now\WABA\obj\Release\netcoreapp2.1\serviceNow.RazorAssemblyInfo.cache
+C:\Users\msoninbayar\source\repos\Service-now\WABA\obj\Release\netcoreapp2.1\serviceNow.RazorAssemblyInfo.cs
+C:\Users\msoninbayar\source\repos\Service-now\WABA\obj\Release\netcoreapp2.1\UserSecretsAssemblyInfo.cs
+C:\Users\msoninbayar\source\repos\Service-now\WABA\obj\Release\netcoreapp2.1\serviceNow.AssemblyInfoInputs.cache
+C:\Users\msoninbayar\source\repos\Service-now\WABA\obj\Release\netcoreapp2.1\serviceNow.AssemblyInfo.cs
+C:\Users\msoninbayar\source\repos\Service-now\WABA\obj\Release\netcoreapp2.1\serviceNow.RazorTargetAssemblyInfo.cache
+C:\Users\msoninbayar\source\repos\Service-now\WABA\obj\Release\netcoreapp2.1\serviceNow.dll
+C:\Users\msoninbayar\source\repos\Service-now\WABA\obj\Release\netcoreapp2.1\serviceNow.pdb

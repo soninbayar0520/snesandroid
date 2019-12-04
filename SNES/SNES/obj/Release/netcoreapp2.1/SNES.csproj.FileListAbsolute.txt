@@ -1,0 +1,17 @@
+C:\Users\msoninbayar\Source\Repos\SNES\SNES\bin\Release\netcoreapp2.1\appsettings.json
+C:\Users\msoninbayar\Source\Repos\SNES\SNES\bin\Release\netcoreapp2.1\SNES.deps.json
+C:\Users\msoninbayar\Source\Repos\SNES\SNES\bin\Release\netcoreapp2.1\SNES.runtimeconfig.json
+C:\Users\msoninbayar\Source\Repos\SNES\SNES\bin\Release\netcoreapp2.1\SNES.runtimeconfig.dev.json
+C:\Users\msoninbayar\Source\Repos\SNES\SNES\bin\Release\netcoreapp2.1\SNES.dll
+C:\Users\msoninbayar\Source\Repos\SNES\SNES\bin\Release\netcoreapp2.1\SNES.pdb
+C:\Users\msoninbayar\Source\Repos\SNES\SNES\obj\Release\netcoreapp2.1\SNES.csprojAssemblyReference.cache
+C:\Users\msoninbayar\Source\Repos\SNES\SNES\obj\Release\netcoreapp2.1\SNES.csproj.CoreCompileInputs.cache
+C:\Users\msoninbayar\Source\Repos\SNES\SNES\obj\Release\netcoreapp2.1\SNES.RazorAssemblyInfo.cache
+C:\Users\msoninbayar\Source\Repos\SNES\SNES\obj\Release\netcoreapp2.1\SNES.RazorAssemblyInfo.cs
+C:\Users\msoninbayar\Source\Repos\SNES\SNES\obj\Release\netcoreapp2.1\UserSecretsAssemblyInfo.cs
+C:\Users\msoninbayar\Source\Repos\SNES\SNES\obj\Release\netcoreapp2.1\SNES.AssemblyInfoInputs.cache
+C:\Users\msoninbayar\Source\Repos\SNES\SNES\obj\Release\netcoreapp2.1\SNES.AssemblyInfo.cs
+C:\Users\msoninbayar\Source\Repos\SNES\SNES\obj\Release\netcoreapp2.1\SNES.RazorTargetAssemblyInfo.cache
+C:\Users\msoninbayar\Source\Repos\SNES\SNES\obj\Release\netcoreapp2.1\SNES.dll
+C:\Users\msoninbayar\Source\Repos\SNES\SNES\obj\Release\netcoreapp2.1\SNES.pdb
+C:\Users\msoninbayar\Source\Repos\SNES\SNES\bin\Release\netcoreapp2.1\1.PNG

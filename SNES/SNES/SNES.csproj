@@ -1,0 +1,64 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <UserSecretsId>b1501769-76ae-4e8a-af64-742c6ea2b65c</UserSecretsId>
+    <AssemblyName>SNES</AssemblyName>
+    <RootNamespace>SNES</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20191113150901_InitialCreate.cs" />
+    <Compile Remove="Migrations\20191113150901_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20191113151424_InitialCreate.cs" />
+    <Compile Remove="Migrations\20191113151424_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20191113152234_InitialCreate.cs" />
+    <Compile Remove="Migrations\20191113152234_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20191113153519_InitialCreate.cs" />
+    <Compile Remove="Migrations\20191113153519_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20191113154427_InitialCreate.cs" />
+    <Compile Remove="Migrations\20191113154427_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20191113162726_InitialCreate.cs" />
+    <Compile Remove="Migrations\20191113162726_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20191204161823_InitialCreate.cs" />
+    <Compile Remove="Migrations\20191204161823_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20191204164307_InitialCreate.cs" />
+    <Compile Remove="Migrations\20191204164307_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20191204173029_InitialCreate.cs" />
+    <Compile Remove="Migrations\20191204173029_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20191204173749_InitialCreate.cs" />
+    <Compile Remove="Migrations\20191204173749_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20191204175051_InitialCreate.cs" />
+    <Compile Remove="Migrations\20191204175051_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20191204183038_InitialCreate.cs" />
+    <Compile Remove="Migrations\20191204183038_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20191204191700_InitialCreate.cs" />
+    <Compile Remove="Migrations\20191204191700_InitialCreate.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.0.2105168" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    <PackageReference Include="System.Drawing.Common" Version="4.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="1.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
