@@ -9,19 +9,18 @@ public class maintest {
 
 	public static void main(String[] args) throws TesseractException {
 
-
 		String img2 = "src/main/2.jpg";
 		String img3 = "src/main/3.jpg";
 		String img4 = "src/main/4.jpg";
 		String img5 = "src/main/5.jpeg";
 
-		//System.out.println(StringClean(findTotal(img1)));
-		//System.out.println(StringClean(findTotal(img2)));
-		//System.out.println(StringClean(findTotal(img3)));
-		//System.out.println(StringClean(findTotal(img4)));
-		//System.out.println(StringClean(findTotal(img5)));
-		//findDate(img3);
-		//findDate(img2);
+		// System.out.println(StringClean(findTotal(img1)));
+		// System.out.println(StringClean(findTotal(img2)));
+		// System.out.println(StringClean(findTotal(img3)));
+		// System.out.println(StringClean(findTotal(img4)));
+		// System.out.println(StringClean(findTotal(img5)));
+		// findDate(img3);
+		// findDate(img2);
 		findDate(img3);
 		findDate(img4);
 		findDate(img5);
@@ -39,16 +38,18 @@ public class maintest {
 		// readSubTotal(result);
 		// System.out.print(imageFile.getAbsolutePath());
 	}
-	
-	
+
 	public static String findDate(String fileUrl) {
 		String resultTotal;
-		String resultDate ;
+		String resultDate;
 		String RawString;
 		String regexTotal = "\\s[Tt][Oo][TtFf][Aa][Ll][.]?\\s?[:]?\\s?[$]?\\s?\\d{1,9}[,.]\\d{1,9}";
-		String regexDate="\\s?[0-9]{2,4}[/][0-9]{2,4}[/][0-9]{2,4}\\s?([0-9]{2}[:][0-9]{2})?([:][0-9]{2})?\\s?"; 
-		
-		String regexDate0="(\\d{2,4})[/](\\d{2,4})[/](\\d{2,4})(\\s(\\d{2,4}):(\\d{2,4}):(\\d{2,4}))|(\\d{2,4})[/](\\d{2,4})[/](\\d{2,4})(\\s(\\d{2,4}):(\\d{2,4}\\s[A-Za-z]{2}))|(\\d{2,4})[/](\\d{2,4})[/](\\d{2,4})";
+		// String
+		// regexDate="\\s?[0-9]{2,4}[/][0-9]{2,4}[/][0-9]{2,4}\\s?([0-9]{2}[:][0-9]{2})?([:][0-9]{2})?\\s?";
+		// String
+		// regexDate0="(\\d{2,4})[/](\\d{2,4})[/](\\d{2,4})(\\s(\\d{2,4}):(\\d{2,4}):(\\d{2,4}))|(\\d{2,4})[/](\\d{2,4})[/](\\d{2,4})(\\s(\\d{2,4}):(\\d{2,4}\\s[A-Za-z]{2}))|(\\d{2,4})[/](\\d{2,4})[/](\\d{2,4})";
+		// String
+		//String regexDate1="(\\d{2,4})[/](\\d{2,4})[/](\\d{2,4})(\\s(\\d{2,4}):(\\d{2,4}):(\\d{2,4}))|(\\d{2,4})[/](\\d{2,4})[/](\\d{2,4})(\\s(\\d{2,4}):(\\d{2,4}\\s[A-Za-z]{2}))";
 		String regexDate1="(\\d{2,4})[/](\\d{2,4})[/](\\d{2,4})(\\s(\\d{2,4}):(\\d{2,4}):(\\d{2,4}))|(\\d{2,4})[/](\\d{2,4})[/](\\d{2,4})(\\s(\\d{2,4}):(\\d{2,4}\\s[A-Za-z]{2}))";
 		Tesseract tesseract = new Tesseract();
 		tesseract.setDatapath("src/main/tessdata");
@@ -57,14 +58,11 @@ public class maintest {
 			File imageFile = new File(fileUrl);
 			long start = System.currentTimeMillis();
 			RawString = tesseract.doOCR(imageFile);
-			
-			//System.out.println(RawString);
-			
+			// System.out.println(RawString);
 			resultTotal = RegexTotal(regexTotal, RawString);
 			resultDate = RegexTotal(regexDate1, RawString);
-			
 			System.out.println(resultTotal);
-			System.out.println("DATE: "+resultDate);
+			System.out.println("DATE: " + resultDate);
 			long finish = System.currentTimeMillis();
 			long timeElapsed = finish - start;
 			// System.out.println(RawString);
