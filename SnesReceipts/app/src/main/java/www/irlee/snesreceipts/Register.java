@@ -8,7 +8,15 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.HttpResponse;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
+
 import java.io.DataOutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -20,6 +28,7 @@ import www.irlee.snesreceipts.Models.User;
 
 public class Register extends AppCompatActivity {
     UserDbAdapter userDbAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,41 +37,41 @@ public class Register extends AppCompatActivity {
 
     }
 
-    public void RegisterUserIntoDatabase(View view){
+    public void RegisterUserIntoDatabase(View view) {
         Date currentTime = Calendar.getInstance().getTime();
         DateFormat dateFormat = android.text.format.DateFormat.getDateFormat(getApplicationContext());
-        boolean allrequired=true;
-        EditText in_email=findViewById(R.id.Email);
-        EditText in_FirstName=findViewById(R.id.FirstName);
-        EditText in_lastName=findViewById(R.id.LastName);
-        EditText in_pass1=findViewById(R.id.Password);
-        EditText in_pass2=findViewById(R.id.RePassword);
+        boolean allrequired = true;
+        EditText in_email = findViewById(R.id.Email);
+        EditText in_FirstName = findViewById(R.id.FirstName);
+        EditText in_lastName = findViewById(R.id.LastName);
+        EditText in_pass1 = findViewById(R.id.Password);
+        EditText in_pass2 = findViewById(R.id.RePassword);
 
-        if( in_email.getText().toString().isEmpty()){
-            in_email.setError( "Email is required!" );
-            allrequired =false;
+        if (in_email.getText().toString().isEmpty()) {
+            in_email.setError("Email is required!");
+            allrequired = false;
         }
-        if( in_FirstName.getText().toString().isEmpty()){
-            in_FirstName.setError( "First Name is required!" );
-            allrequired =false;
+        if (in_FirstName.getText().toString().isEmpty()) {
+            in_FirstName.setError("First Name is required!");
+            allrequired = false;
         }
-        if( in_lastName.getText().toString().isEmpty()){
-            in_lastName.setError( "Last Name is required!" );
-            allrequired =false;
+        if (in_lastName.getText().toString().isEmpty()) {
+            in_lastName.setError("Last Name is required!");
+            allrequired = false;
         }
-        if( in_pass1.getText().toString().isEmpty()){
-            in_pass1.setError( "Password is required!" );
-            allrequired =false;
+        if (in_pass1.getText().toString().isEmpty()) {
+            in_pass1.setError("Password is required!");
+            allrequired = false;
         }
-        if( in_pass2.getText().toString().isEmpty()){
-            in_pass2.setError( "Re Password is required!" );
-            allrequired =false;
+        if (in_pass2.getText().toString().isEmpty()) {
+            in_pass2.setError("Re Password is required!");
+            allrequired = false;
         }
-        if( in_pass1.getText().toString().equals(in_pass2.getText().toString())){
-            in_pass2.setError( "Password Miss match" );
-            allrequired =false;
+        if (in_pass1.getText().toString().equals(in_pass2.getText().toString())) {
+            in_pass2.setError("Password Miss match");
+            allrequired = false;
         }
-        if(allrequired){
+        if (allrequired) {
             User user = new User();
             user.UserName = in_email.getText().toString();
             user.UserEmail = in_email.getText().toString();
@@ -81,13 +90,13 @@ public class Register extends AppCompatActivity {
         }
     }
 
-    public void CreateUserTable(View view){
+    public void CreateUserTable(View view) {
         userDbAdapter.myhelper.onCreate(userDbAdapter.myhelper.getReadableDatabase());
     }
 
-    public void getUserInfo(String UserName,String Password){
-      User user=  userDbAdapter.getUserInfo(UserName,Password);
-      Message.message(this, user.UserEmail+user.FirstName);
+    public void getUserInfo(String UserName, String Password) {
+        User user = userDbAdapter.getUserInfo(UserName, Password);
+        Message.message(this, user.UserEmail + user.FirstName);
     }
 
     public void SaveUserIntoServer(final User user) {
@@ -99,7 +108,7 @@ public class Register extends AppCompatActivity {
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                     conn.setRequestMethod("POST");
                     conn.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
-                    conn.setRequestProperty("Accept","application/json");
+                    conn.setRequestProperty("Accept", "application/json");
                     conn.setDoOutput(true);
                     conn.setDoInput(true);
                     Gson gson = new Gson();
@@ -111,7 +120,7 @@ public class Register extends AppCompatActivity {
                     os.flush();
                     os.close();
                     Log.i("STATUS", String.valueOf(conn.getResponseCode()));
-                    Log.i("MSG" , conn.getResponseMessage());
+                    Log.i("MSG", conn.getResponseMessage());
 
                     conn.disconnect();
                 } catch (Exception e) {
@@ -119,7 +128,37 @@ public class Register extends AppCompatActivity {
                 }
             }
         });
-
         thread.start();
     }
+
+    public void CheckuserInfo(String UserName) {
+
+        try {
+
+            RequestQueue queue = Volley.newRequestQueue(this);
+            String url = "http://snes.irlee.net/SNES/GetUserInfo?username=" + UserName;
+
+            StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                    new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            Gson gson = new Gson();
+                            User user = gson.fromJson(response, User.class);
+
+                        }
+                    }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+
+                }
+            });
+            queue.add(stringRequest);
+
+
+        } catch (Exception e) {
+            Log.i("Error", e.getMessage());
+        } finally {
+        }
+    }
+
 }
