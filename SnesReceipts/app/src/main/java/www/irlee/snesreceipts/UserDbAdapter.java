@@ -34,21 +34,39 @@ public class UserDbAdapter {
         contentValues.put(myDbHelper.CreatedTime, user.CreatedTime);
         contentValues.put(myDbHelper.UpdatedTime, user.UpdatedTime);
         long id = db.insert(myDbHelper.TABLE_USER, null, contentValues);
-
         return id;
     }
 
-    public User getUserInfo(String User_Email) {
-        String Where="UserEmail =";
-        String[] condition= new String[]{User_Email};
+    public int CheckUserNamePassword(String User_Email, String Password) {
+        String WhereClause = "UserName=? and Password=?";
+        String[] condition = new String[]{User_Email, Password};
+        try {
+            if (!User_Email.equals("") && !Password.equals("")) {
+                SQLiteDatabase db = myhelper.getWritableDatabase();
+                String[] columns = {myDbHelper.UID, myDbHelper.UserName, myDbHelper.UserEmail, myDbHelper.FirstName, myDbHelper.LastName, myDbHelper.Password, myDbHelper.UserPicture, myDbHelper.CreatedTime, myDbHelper.UpdatedTime};
+                Cursor Users = db.query(myDbHelper.TABLE_USER, columns, WhereClause, condition, null, null, null);
+                int count = Users.getCount();
+                return count;
+            } else {
+                return 0;
+            }
+
+        } catch (Exception e) {
+            return 0;
+        }
+    }
+
+    public User getUserInfo(String User_Email, String Password) {
+        String WhereClause = "UserName=? and Password=?";
+        String[] condition = new String[]{User_Email, Password};
         User user = new User();
         try {
 
             SQLiteDatabase db = myhelper.getWritableDatabase();
             String[] columns = {myDbHelper.UID, myDbHelper.UserName, myDbHelper.UserEmail, myDbHelper.FirstName, myDbHelper.LastName, myDbHelper.Password, myDbHelper.UserPicture, myDbHelper.CreatedTime, myDbHelper.UpdatedTime};
-            Cursor Users = db.query(myDbHelper.TABLE_USER, columns, null, null, null, null, null);
-            while (Users.moveToNext())
-            {
+            Cursor Users = db.query(myDbHelper.TABLE_USER, columns, WhereClause, condition, null, null, null);
+            int count = Users.getCount();
+            while (Users.moveToNext()) {
                 user.UserName = Users.getString(Users.getColumnIndex(myDbHelper.UserName));
                 user.UserEmail = Users.getString(Users.getColumnIndex(myDbHelper.UserEmail));
                 user.FirstName = Users.getString(Users.getColumnIndex(myDbHelper.FirstName));
@@ -59,7 +77,7 @@ public class UserDbAdapter {
                 user.UpdatedTime = Users.getString(Users.getColumnIndex(myDbHelper.UpdatedTime));
             }
             return user;
-        }catch (Exception e){
+        } catch (Exception e) {
 
         }
         return user;
@@ -99,7 +117,7 @@ public class UserDbAdapter {
 
             try {
                 db.execSQL(CREATE_USER_TABLE);
-                Message.message(context,"table created.");
+                Message.message(context, "table created.");
             } catch (Exception e) {
                 Message.message(context, "" + e);
             }

@@ -6,17 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".Register">
 
-    <Button
-        android:id="@+id/btn_Crt_user"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="Create user Table"
-        android:onClick="CreateUserTable"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_register" />
+
 
     <Button
         android:id="@+id/btn_register"
@@ -39,36 +29,59 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_Crt_user" />
-
-    <TextView
-        android:id="@+id/FirstName"
+        app:layout_constraintTop_toBottomOf="@+id/btn_register" />
+    <EditText
+        android:id="@+id/RePassword"
         android:layout_width="249dp"
         android:layout_height="40dp"
-        android:text="TextView"
+        android:hint="@string/rePassword"
         app:layout_constraintBottom_toTopOf="@+id/btn_register"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.462"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Lastname"
-        app:layout_constraintVertical_bias="0.064" />
 
-    <TextView
-        android:id="@+id/Lastname"
+        app:layout_constraintTop_toBottomOf="@+id/Password"
+        app:layout_constraintVertical_bias="0.064" />
+    <EditText
+        android:id="@+id/Password"
         android:layout_width="249dp"
         android:layout_height="40dp"
-        android:text="TextView"
+        android:hint="@string/Password"
         app:layout_constraintBottom_toTopOf="@+id/btn_register"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.462"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Username"
-        app:layout_constraintVertical_bias="0.35" />
-
-    <TextView
-        android:id="@+id/Username"
+        app:layout_constraintTop_toBottomOf="@+id/FirstName"
+        app:layout_constraintVertical_bias="0.064" />
+    <EditText
+        android:id="@+id/FirstName"
         android:layout_width="249dp"
         android:layout_height="40dp"
-        android:text="TextView"
+        android:hint="@string/FirstName"
+        app:layout_constraintBottom_toTopOf="@+id/btn_register"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.462"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LastName"
+        app:layout_constraintVertical_bias="0.064" />
+
+    <EditText
+        android:id="@+id/LastName"
+        android:layout_width="249dp"
+        android:layout_height="40dp"
+        android:hint="@string/LastName"
+        app:layout_constraintBottom_toTopOf="@+id/btn_register"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.462"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Email"
+        app:layout_constraintVertical_bias="0.047" />
+
+    <EditText
+        android:id="@+id/Email"
+        android:layout_width="249dp"
+        android:layout_height="40dp"
+        android:hint="@string/Email"
         app:layout_constraintBottom_toTopOf="@+id/btn_register"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.46"

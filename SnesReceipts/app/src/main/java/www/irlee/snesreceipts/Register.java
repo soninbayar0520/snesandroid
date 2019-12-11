@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.google.gson.Gson;
 import java.io.DataOutputStream;
@@ -29,26 +31,62 @@ public class Register extends AppCompatActivity {
     public void RegisterUserIntoDatabase(View view){
         Date currentTime = Calendar.getInstance().getTime();
         DateFormat dateFormat = android.text.format.DateFormat.getDateFormat(getApplicationContext());
-        User user = new User();
-        user.UserName="Soninbayar";
-        user.UserEmail="soninmunkh@gmail.com";
-        user.FirstName="Soninbayar";
-        user.LastName="Munkhbayar";
-        user.Password="qwerty1234";
-        user.UserPicture="null";
-        user.CreatedTime=dateFormat.format(currentTime);
-        user.UpdatedTime=dateFormat.format(currentTime);
-        long id= userDbAdapter.insertData(user);
-        SaveUserIntoServer(user);
-        Message.message(this,Long.toString(id));
+        boolean allrequired=true;
+        EditText in_email=findViewById(R.id.Email);
+        EditText in_FirstName=findViewById(R.id.FirstName);
+        EditText in_lastName=findViewById(R.id.LastName);
+        EditText in_pass1=findViewById(R.id.Password);
+        EditText in_pass2=findViewById(R.id.RePassword);
+
+        if( in_email.getText().toString().isEmpty()){
+            in_email.setError( "Email is required!" );
+            allrequired =false;
+        }
+        if( in_FirstName.getText().toString().isEmpty()){
+            in_FirstName.setError( "First Name is required!" );
+            allrequired =false;
+        }
+        if( in_lastName.getText().toString().isEmpty()){
+            in_lastName.setError( "Last Name is required!" );
+            allrequired =false;
+        }
+        if( in_pass1.getText().toString().isEmpty()){
+            in_pass1.setError( "Password is required!" );
+            allrequired =false;
+        }
+        if( in_pass2.getText().toString().isEmpty()){
+            in_pass2.setError( "Re Password is required!" );
+            allrequired =false;
+        }
+        if( in_pass1.getText().toString().equals(in_pass2.getText().toString())){
+            in_pass2.setError( "Password Miss match" );
+            allrequired =false;
+        }
+        if(allrequired){
+            User user = new User();
+            user.UserName = in_email.getText().toString();
+            user.UserEmail = in_email.getText().toString();
+            user.FirstName = in_FirstName.getText().toString();
+            user.LastName = in_lastName.getText().toString();
+            user.Password = in_pass1.getText().toString();
+            user.UserPicture = "null";
+            user.CreatedTime = dateFormat.format(currentTime);
+            user.UpdatedTime = dateFormat.format(currentTime);
+            long id = userDbAdapter.insertData(user);
+            if (id != 0) {
+                SaveUserIntoServer(user);
+                Message.message(this, "Successfully registered please login");
+                finish();
+            }
+        }
     }
 
     public void CreateUserTable(View view){
         userDbAdapter.myhelper.onCreate(userDbAdapter.myhelper.getReadableDatabase());
     }
 
-    public void getUserInfo(View view){
-      User user=  userDbAdapter.getUserInfo("Zaya8906@gmail.com");
+    public void getUserInfo(String UserName,String Password){
+      User user=  userDbAdapter.getUserInfo(UserName,Password);
       Message.message(this, user.UserEmail+user.FirstName);
     }
 
@@ -64,18 +102,14 @@ public class Register extends AppCompatActivity {
                     conn.setRequestProperty("Accept","application/json");
                     conn.setDoOutput(true);
                     conn.setDoInput(true);
-
                     Gson gson = new Gson();
                     String json = gson.toJson(user);
-
                     Log.i("JSON", json);
                     DataOutputStream os = new DataOutputStream(conn.getOutputStream());
                     //os.writeBytes(URLEncoder.encode(jsonParam.toString(), "UTF-8"));
                     os.writeBytes(json);
-
                     os.flush();
                     os.close();
-
                     Log.i("STATUS", String.valueOf(conn.getResponseCode()));
                     Log.i("MSG" , conn.getResponseMessage());
 
