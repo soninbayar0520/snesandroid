@@ -25,14 +25,14 @@ public class UserDbAdapter {
     public long insertData(User user) {
         SQLiteDatabase db = myhelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(myDbHelper.UserName, user.UserName);
-        contentValues.put(myDbHelper.UserEmail, user.UserEmail);
-        contentValues.put(myDbHelper.FirstName, user.FirstName);
-        contentValues.put(myDbHelper.LastName, user.LastName);
-        contentValues.put(myDbHelper.Password, user.Password);
-        contentValues.put(myDbHelper.UserPicture, user.UserPicture);
-        contentValues.put(myDbHelper.CreatedTime, user.CreatedTime);
-        contentValues.put(myDbHelper.UpdatedTime, user.UpdatedTime);
+        contentValues.put(myDbHelper.UserName, user.userName);
+        contentValues.put(myDbHelper.UserEmail, user.userEmail);
+        contentValues.put(myDbHelper.FirstName, user.firstName);
+        contentValues.put(myDbHelper.LastName, user.lastName);
+        contentValues.put(myDbHelper.Password, user.password);
+        contentValues.put(myDbHelper.UserPicture, user.userPicture);
+        contentValues.put(myDbHelper.CreatedTime, user.createdTime);
+        contentValues.put(myDbHelper.UpdatedTime, user.updatedTime);
         long id = db.insert(myDbHelper.TABLE_USER, null, contentValues);
         return id;
     }
@@ -67,14 +67,14 @@ public class UserDbAdapter {
             Cursor Users = db.query(myDbHelper.TABLE_USER, columns, WhereClause, condition, null, null, null);
             int count = Users.getCount();
             while (Users.moveToNext()) {
-                user.UserName = Users.getString(Users.getColumnIndex(myDbHelper.UserName));
-                user.UserEmail = Users.getString(Users.getColumnIndex(myDbHelper.UserEmail));
-                user.FirstName = Users.getString(Users.getColumnIndex(myDbHelper.FirstName));
-                user.LastName = Users.getString(Users.getColumnIndex(myDbHelper.LastName));
-                user.Password = Users.getString(Users.getColumnIndex(myDbHelper.Password));
-                user.UserPicture = Users.getString(Users.getColumnIndex(myDbHelper.UserPicture));
-                user.CreatedTime = Users.getString(Users.getColumnIndex(myDbHelper.CreatedTime));
-                user.UpdatedTime = Users.getString(Users.getColumnIndex(myDbHelper.UpdatedTime));
+                user.userName = Users.getString(Users.getColumnIndex(myDbHelper.UserName));
+                user.userEmail = Users.getString(Users.getColumnIndex(myDbHelper.UserEmail));
+                user.firstName = Users.getString(Users.getColumnIndex(myDbHelper.FirstName));
+                user.lastName = Users.getString(Users.getColumnIndex(myDbHelper.LastName));
+                user.password = Users.getString(Users.getColumnIndex(myDbHelper.Password));
+                user.userPicture = Users.getString(Users.getColumnIndex(myDbHelper.UserPicture));
+                user.createdTime = Users.getString(Users.getColumnIndex(myDbHelper.CreatedTime));
+                user.updatedTime = Users.getString(Users.getColumnIndex(myDbHelper.UpdatedTime));
             }
             return user;
         } catch (Exception e) {

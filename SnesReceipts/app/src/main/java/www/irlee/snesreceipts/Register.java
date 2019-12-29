@@ -73,14 +73,14 @@ public class Register extends AppCompatActivity {
         }
         if (allrequired) {
             User user = new User();
-            user.UserName = in_email.getText().toString();
-            user.UserEmail = in_email.getText().toString();
-            user.FirstName = in_FirstName.getText().toString();
-            user.LastName = in_lastName.getText().toString();
-            user.Password = in_pass1.getText().toString();
-            user.UserPicture = "null";
-            user.CreatedTime = dateFormat.format(currentTime);
-            user.UpdatedTime = dateFormat.format(currentTime);
+            user.userName = in_email.getText().toString();
+            user.userEmail = in_email.getText().toString();
+            user.firstName = in_FirstName.getText().toString();
+            user.lastName = in_lastName.getText().toString();
+            user.password = in_pass1.getText().toString();
+            user.userPicture = "null";
+            user.createdTime = dateFormat.format(currentTime);
+            user.updatedTime = dateFormat.format(currentTime);
             long id = userDbAdapter.insertData(user);
             if (id != 0) {
                 SaveUserIntoServer(user);
@@ -96,7 +96,7 @@ public class Register extends AppCompatActivity {
 
     public void getUserInfo(String UserName, String Password) {
         User user = userDbAdapter.getUserInfo(UserName, Password);
-        Message.message(this, user.UserEmail + user.FirstName);
+        Message.message(this, user.userEmail + user.firstName);
     }
 
     public void SaveUserIntoServer(final User user) {

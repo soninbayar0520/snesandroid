@@ -2,90 +2,102 @@ package www.irlee.snesreceipts.Models;
 
 public class User {
 
-    public String UserName;
-    public String UserEmail;
-    public String FirstName;
-    public String LastName;
-    public String Password;
-    public String UserPicture;
-    public String CreatedTime;
-    public String UpdatedTime;
+    public String userID;
+    public String userName;
+    public String userEmail;
+    public String firstName;
+    public String lastName;
+    public String password;
+    public String userPicture;
+    public String createdTime;
+    public String updatedTime;
 
-    public User(String userName, String userEmail, String firstName, String lastName, String password, String userPicture, String createdTime, String updatedTime) {
-        UserName = userName;
-        UserEmail = userEmail;
-        FirstName = firstName;
-        LastName = lastName;
-        Password = password;
-        UserPicture = userPicture;
-        CreatedTime = createdTime;
-        UpdatedTime = updatedTime;
+    public User(String userID, String userName, String userEmail, String firstName, String lastName, String password, String userPicture, String createdTime, String updatedTime) {
+        this.userID = userID;
+        this.userName = userName;
+        this.userEmail = userEmail;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.password = password;
+        this.userPicture = userPicture;
+        this.createdTime = createdTime;
+        this.updatedTime = updatedTime;
+    }
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
+    }
+
+    public String getCreatedTime() {
+        return createdTime;
+    }
+
+    public void setCreatedTime(String createdTime) {
+        this.createdTime = createdTime;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getUserPicture() {
+        return userPicture;
+    }
+
+    public void setUserPicture(String userPicture) {
+        this.userPicture = userPicture;
+    }
+
+    public String getUpdatedTime() {
+        return updatedTime;
+    }
+
+    public void setUpdatedTime(String updatedTime) {
+        this.updatedTime = updatedTime;
     }
 
     public User() {
     }
 
-    public String getUpdatedTime() {
-        return UpdatedTime;
-    }
 
-    public void setUpdatedTime(String updatedTime) {
-        UpdatedTime = updatedTime;
-    }
-
-    public String getCreatedTime() {
-        return CreatedTime;
-    }
-
-    public void setCreatedTime(String createdTime) {
-        CreatedTime = createdTime;
-    }
-
-    public String getUserPicture() {
-        return UserPicture;
-    }
-
-    public void setUserPicture(String userPicture) {
-        UserPicture = userPicture;
-    }
-
-    public String getUserName() {
-        return UserName;
-    }
-
-    public void setUserName(String userName) {
-        UserName = userName;
-    }
-
-    public String getUserEmail() {
-        return UserEmail;
-    }
-
-    public void setUserEmail(String userEmail) {
-        UserEmail = userEmail;
-    }
-
-    public String getFirstName() {
-        return FirstName;
-    }
-
-    public void setFirstName(String firstName) {
-        FirstName = firstName;
-    }
-
-    public String getLastName() {
-        return LastName;
-    }
-
-    public void setLastName(String lastName) {
-        LastName = lastName;
-    }
-
-    public String getPassword() {
-        return Password;
-    }
-
-    public void setPassword(String password) {
-        Password = password;
-    }
 }

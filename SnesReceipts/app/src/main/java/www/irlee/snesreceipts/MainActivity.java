@@ -1,5 +1,6 @@
 package www.irlee.snesreceipts;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -7,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -31,12 +33,33 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        TextView editText = findViewById(R.id.txt_View);
-        Intent intent = getIntent();
-        String message = intent.getStringExtra(LoginActivity.EXTRA_MESSAGE);
-        editText.setText(message);
         C_helper = new CategoryDbAdapter(this);
+
+        Button openCamera = findViewById(R.id.BtnOpencamera);
+        openCamera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent cameraAct= new Intent(MainActivity.this,CameraActivity.class);
+                startActivityForResult(cameraAct,1);
+            }
+        });
+
+
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==1){
+            if(resultCode==RESULT_OK){
+                String filelocation =data.getStringExtra("FileLocation");
+                TextView txtView_url = findViewById(R.id.txtView_url);
+                txtView_url.setText(filelocation);
+            }
+        }
+    }
+
+
 
     public void ShowAllCategories(View view) {
         try {
@@ -106,10 +129,10 @@ public class MainActivity extends AppCompatActivity {
             ObjectMapper mapper = new ObjectMapper();
             List<Category> categories = null;
             categories = Arrays.asList(mapper.readValue(models, Category[].class));
-            TextView tView = findViewById(R.id.txt_View);
+           // TextView tView = findViewById(R.id.txt_View);
             for (Category category : categories) {
                 long id = C_helper.insertData(category);
-                tView.setText(tView.getText()+Long.toString(id));
+             //   tView.setText(tView.getText()+Long.toString(id));
             }
         } catch (IOException e) {
             e.printStackTrace();
