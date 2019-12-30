@@ -51,6 +51,7 @@ public class CameraActivity extends AppCompatActivity {
 
     private Button btnCapture;
     private TextureView textureView;
+    private Button backButton;
 
     //Check state orientation of output image
     private static final SparseIntArray ORIENTATIONS = new SparseIntArray();
@@ -99,7 +100,6 @@ public class CameraActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
-
         textureView = findViewById(R.id.textureView);
         //From Java 1.4 , you can use keyword 'assert' to check expression true or false
         assert textureView != null;
@@ -109,6 +109,18 @@ public class CameraActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 takePicture();
+            }
+        });
+
+        backButton = findViewById(R.id.okback);
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            Intent returnIntent= new Intent();
+                returnIntent.putExtra("result",file.toString());
+                setResult(RESULT_OK,returnIntent);
+              finish();
             }
         });
     }
@@ -129,8 +141,8 @@ public class CameraActivity extends AppCompatActivity {
             int height = 480;
             if(jpegSizes != null && jpegSizes.length > 0)
             {
-                width = jpegSizes[0].getWidth();
-                height = jpegSizes[0].getHeight();
+                width =1440;// jpegSizes[0].getWidth();
+                height =1080;// jpegSizes[0].getHeight();
             }
             final ImageReader reader = ImageReader.newInstance(width,height,ImageFormat.JPEG,1);
             List<Surface> outputSurface = new ArrayList<>(2);
@@ -142,7 +154,7 @@ public class CameraActivity extends AppCompatActivity {
             captureBuilder.set(CaptureRequest.CONTROL_MODE, CameraMetadata.CONTROL_MODE_AUTO);
 
             //Check orientation base on device
-            int rotation = getWindowManager().getDefaultDisplay().getRotation();
+            int rotation = 2;//getWindowManager().getDefaultDisplay().getRotation();
             captureBuilder.set(CaptureRequest.JPEG_ORIENTATION,ORIENTATIONS.get(rotation));
 
             file = new File(Environment.getExternalStorageDirectory()+"/"+UUID.randomUUID().toString()+".jpg");
@@ -191,13 +203,9 @@ public class CameraActivity extends AppCompatActivity {
                 public void onCaptureCompleted(@NonNull CameraCaptureSession session, @NonNull CaptureRequest request, @NonNull TotalCaptureResult result) {
                     super.onCaptureCompleted(session, request, result);
                     Toast.makeText(CameraActivity.this, "Saved "+file, Toast.LENGTH_SHORT).show();
-                    Intent ResultIntent= new Intent();
-                    ResultIntent.putExtra("FileLocation",file);
-                    setResult(RESULT_OK);
-                    finish();
 
-                 //   stopBackgroundThread();
-                   // createCameraPreview();
+
+                  createCameraPreview();
                 }
             };
 

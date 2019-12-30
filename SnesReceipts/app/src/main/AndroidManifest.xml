@@ -3,7 +3,7 @@
     package="www.irlee.snesreceipts">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CAMERA"  android:required="true" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.HARDWARE_TEST.camera2.full" />
 
@@ -15,7 +15,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".CameraActivity"></activity>
+        <activity android:name=".Camera"></activity>
+        <activity android:name=".CameraActivity" />
         <activity android:name=".Register" />
         <activity android:name=".MainActivity" />
         <activity android:name=".LoginActivity">
@@ -25,6 +26,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <provider
+
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="www.irlee.snesreceipts.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"></meta-data>
+        </provider>
     </application>
 
 </manifest>

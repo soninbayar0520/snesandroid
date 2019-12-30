@@ -9,7 +9,7 @@ public class maintest {
 
 	public static void main(String[] args) throws TesseractException {
 
-		String img2 = "src/main/2.jpg";
+		String img2 = "src/main/9.jpg";
 		String img3 = "src/main/3.jpg";
 		String img4 = "src/main/4.jpg";
 		String img5 = "src/main/5.jpeg";
@@ -22,14 +22,14 @@ public class maintest {
 		// findDateAndTime(img3);
 		// findDateAndTime(img2);
 
-		returnModel rm = findDateAndTime(img3);
+		returnModel rm = findDateAndTime(img2);
 		System.out.println(rm.Date + " : " + StringClean(rm.Total));
 
-		rm = findDateAndTime(img4);
-		System.out.println(rm.Date + " : " + StringClean(rm.Total));
+		//rm = findDateAndTime(img4);
+		//System.out.println(rm.Date + " : " + StringClean(rm.Total));
 
-		rm = findDateAndTime(img5);
-		System.out.println(rm.Date + " : " + StringClean(rm.Total));
+		//rm = findDateAndTime(img5);
+		//System.out.println(rm.Date + " : " + StringClean(rm.Total));
 		// findDateAndTime(img4);
 		// findDateAndTime(img5);
 		// System.out.println(findTotal(img2));
